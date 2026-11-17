@@ -1,0 +1,47 @@
+[
+  {
+    "id": "1",
+    "name": "Royal Casino",
+    "logoUrl": "https://via.placeholder.com/80/1e1e2e/f59e0b?text=RC",
+    "rating": 4.8,
+    "bonus": "100% do 500€ + 200 FS",
+    "affiliateLink": "https://example.com/royal",
+    "minDeposit": "10€",
+    "features": ["Szybkie wypłaty", "Live Casino", "Aplikacja mobilna", "Wsparcie 24/7"],
+    "category": "live",
+    "description": "Premium kasyno z bogatą ofertą gier na żywo i wysokimi limitami.",
+    "license": "MGA",
+    "payoutSpeed": "0-24h",
+    "isFeatured": true
+  },
+  {
+    "id": "2",
+    "name": "Golden Spin",
+    "logoUrl": "https://via.placeholder.com/80/1e1e2e/f59e0b?text=GS",
+    "rating": 4.6,
+    "bonus": "200% Bonus Powitalny",
+    "affiliateLink": "https://example.com/golden",
+    "minDeposit": "20€",
+    "features": ["Krypto", "Wysokie RTP", "Program VIP"],
+    "category": "slots",
+    "description": "Najlepsze automaty z progresywnymi jackpotami.",
+    "license": "Curacao",
+    "payoutSpeed": "24-48h",
+    "isFeatured": false
+  },
+  {
+    "id": "3",
+    "name": "Neon Bet",
+    "logoUrl": "https://via.placeholder.com/80/1e1e2e/f59e0b?text=NB",
+    "rating": 4.9,
+    "bonus": "50 Darmowych Spinów bez depozytu",
+    "affiliateLink": "https://example.com/neon",
+    "minDeposit": "5€",
+    "features": ["Bez wageringu", "Natychmiastowe wypłaty", "Turnieje"],
+    "category": "crypto",
+    "description": "Nowoczesne kasyno krypto z natychmiastowymi transakcjami.",
+    "license": "Curaçao",
+    "payoutSpeed": "Natychmiast",
+    "isFeatured": true
+  }
+]
