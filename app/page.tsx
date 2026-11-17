@@ -3,6 +3,8 @@
 import { useEffect, useState, useCallback, useMemo } from 'react';
 import { Casino } from '@/lib/types';
 import CasinoCard from '@/components/CasinoCard';
+import StatsBar from '@/components/StatsBar';
+import CasinoModal from '@/components/CasinoModal';
 import { Search, RefreshCw, AlertCircle, Sparkles, Filter, Heart } from 'lucide-react';
 
 const DATA_URL = process.env.NEXT_PUBLIC_DATA_URL || 'https://raw.githubusercontent.com/your-username/your-repo/main/data/casinos.json';
@@ -18,6 +20,7 @@ export default function HomePage() {
   const [error, setError] = useState<string | null>(null);
   const [lastUpdate, setLastUpdate] = useState<Date | null>(null);
   const [isEmbed, setIsEmbed] = useState(false);
+  const [selectedCasino, setSelectedCasino] = useState<Casino | null>(null);
 
   useEffect(() => {
     const saved = localStorage.getItem('casino-favorites');
@@ -85,6 +88,9 @@ export default function HomePage() {
     return result.sort((a, b) => b.rating - a.rating);
   }, [casinos, search, category, minRating, showFavorites, favorites]);
 
+  const avgRating = casinos.length > 0 ? casinos.reduce((s, c) => s + c.rating, 0) / casinos.length : 0;
+  const featuredCount = casinos.filter((c) => c.isFeatured).length;
+
   const categories = [
     { value: 'all', label: 'Wszystkie' },
     { value: 'slots', label: 'Automaty' },
@@ -96,19 +102,28 @@ export default function HomePage() {
   return (
     <div className={`embed-container min-h-screen ${isEmbed ? 'p-4' : 'p-4 md:p-8'}`}>
       {!isEmbed && (
-        <header className="mb-8 text-center">
-          <div className="inline-flex items-center gap-2 mb-2">
-            <Sparkles className="w-6 h-6 text-gold-400" />
-            <h1 className="font-display font-black text-4xl md:text-5xl tracking-tight text-white">
-              Casino Hub
-            </h1>
+        <header className="mb-10 text-center relative">
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="w-96 h-96 bg-gold-500/10 rounded-full blur-3xl" />
           </div>
-          <p className="text-zinc-400 text-lg">Najlepsze kasyna online. Aktualizowane na żywo.</p>
+          <div className="relative">
+            <div className="inline-flex items-center gap-2 mb-3 bg-gold-500/10 border border-gold-500/30 text-gold-300 px-4 py-1.5 rounded-full text-sm font-medium">
+              <Sparkles className="w-4 h-4" />
+              Aktualizowane na żywo
+            </div>
+            <h1 className="font-display font-black text-5xl md:text-6xl tracking-tighter text-white mb-3">
+              Casino <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-300">Hub</span>
+            </h1>
+            <p className="text-zinc-400 text-lg max-w-xl mx-auto">
+              Najlepsze kasyna online z najwyższymi bonusami. Porównaj oferty i graj odpowiedzialnie.
+            </p>
+          </div>
         </header>
       )}
 
       <div className="max-w-7xl mx-auto">
-        {/* Controls */}
+        {!isEmbed && <StatsBar totalCasinos={casinos.length} avgRating={avgRating} featuredCount={featuredCount} />}
+
         <div className="flex flex-col gap-4 mb-6">
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
             <div className="relative w-full sm:w-96">
@@ -118,14 +133,14 @@ export default function HomePage() {
                 placeholder="Szukaj kasyn, bonusów, gier..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 bg-zinc-900 border border-zinc-800 rounded-xl text-white placeholder-zinc-500 focus:outline-none focus:border-gold-500/50 focus:ring-1 focus:ring-gold-500/30 transition"
+                className="w-full pl-10 pr-4 py-3 bg-zinc-900/80 border border-zinc-800 rounded-xl text-white placeholder-zinc-500 focus:outline-none focus:border-gold-500/50 focus:ring-1 focus:ring-gold-500/30 transition backdrop-blur"
               />
             </div>
             <div className="flex items-center gap-3">
               <button
                 onClick={() => setShowFavorites(!showFavorites)}
                 className={`flex items-center gap-2 px-4 py-2.5 rounded-xl border transition ${
-                  showFavorites ? 'bg-red-500/20 border-red-500 text-red-300' : 'bg-zinc-900 border-zinc-800 text-zinc-300'
+                  showFavorites ? 'bg-red-500/20 border-red-500 text-red-300' : 'bg-zinc-900/80 border-zinc-800 text-zinc-300'
                 }`}
               >
                 <Heart className={`w-4 h-4 ${showFavorites ? 'fill-red-400' : ''}`} />
@@ -134,7 +149,7 @@ export default function HomePage() {
               <button
                 onClick={fetchCasinos}
                 disabled={loading}
-                className="p-2.5 bg-zinc-900 border border-zinc-800 rounded-xl hover:border-gold-500/50 transition disabled:opacity-50"
+                className="p-2.5 bg-zinc-900/80 border border-zinc-800 rounded-xl hover:border-gold-500/50 transition disabled:opacity-50"
                 aria-label="Odśwież"
               >
                 <RefreshCw className={`w-5 h-5 ${loading ? 'animate-spin' : ''}`} />
@@ -151,7 +166,7 @@ export default function HomePage() {
                 className={`px-3 py-1.5 text-sm rounded-full border transition ${
                   category === cat.value
                     ? 'bg-gold-500 text-zinc-950 border-gold-500 font-medium'
-                    : 'bg-zinc-900 border-zinc-800 text-zinc-300 hover:border-zinc-600'
+                    : 'bg-zinc-900/80 border-zinc-800 text-zinc-300 hover:border-zinc-600'
                 }`}
               >
                 {cat.label}
@@ -160,7 +175,7 @@ export default function HomePage() {
             <select
               value={minRating}
               onChange={(e) => setMinRating(Number(e.target.value))}
-              className="ml-auto px-3 py-1.5 bg-zinc-900 border border-zinc-800 rounded-full text-sm text-zinc-300 focus:outline-none focus:border-gold-500"
+              className="ml-auto px-3 py-1.5 bg-zinc-900/80 border border-zinc-800 rounded-full text-sm text-zinc-300 focus:outline-none focus:border-gold-500"
             >
               <option value={0}>Wszystkie oceny</option>
               <option value={4}>4.0+</option>
@@ -186,7 +201,7 @@ export default function HomePage() {
         {loading && casinos.length === 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[...Array(6)].map((_, i) => (
-              <div key={i} className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 animate-pulse h-80" />
+              <div key={i} className="bg-zinc-900 border border-zinc-800 rounded-3xl p-6 animate-pulse h-80" />
             ))}
           </div>
         ) : filtered.length === 0 ? (
@@ -196,16 +211,21 @@ export default function HomePage() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((casino) => (
-              <CasinoCard
-                key={casino.id}
-                casino={casino}
-                isFavorite={favorites.includes(casino.id)}
-                onToggleFavorite={toggleFavorite}
-              />
+              <div key={casino.id} onClick={() => setSelectedCasino(casino)} className="cursor-pointer">
+                <CasinoCard
+                  casino={casino}
+                  isFavorite={favorites.includes(casino.id)}
+                  onToggleFavorite={(id) => {
+                    toggleFavorite(id);
+                  }}
+                />
+              </div>
             ))}
           </div>
         )}
       </div>
+
+      <CasinoModal casino={selectedCasino} onClose={() => setSelectedCasino(null)} />
     </div>
   );
 }

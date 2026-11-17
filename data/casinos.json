@@ -1,22 +1,77 @@
 [
   {
     "id": "1",
-    "name": "SpinBetter",
-    "logoUrl": "https://i.nuuls.com/kHDa1.png",
-    "rating": 5,
-    "bonus": "100% do 500â¬ + 200 FS",
+    "name": "Royal Casino",
+    "logoUrl": "https://via.placeholder.com/80/1e1e2e/f59e0b?text=RC",
+    "rating": 4.8,
+    "bonus": "100% do 500€ + 200 FS",
     "affiliateLink": "https://example.com/royal",
-    "minDeposit": "10â¬",
-    "features": [
-      "Szybkie wypÅaty",
-      "Live Casino",
-      "Aplikacja mobilna",
-      "Wsparcie 24/7"
-    ],
+    "minDeposit": "10€",
+    "features": ["Szybkie wypłaty", "Live Casino", "Aplikacja mobilna", "Wsparcie 24/7"],
     "category": "live",
-    "description": "Premium kasyno z bogatÄ ofertÄ gier na Å¼ywo i wysokimi limitami.",
+    "description": "Premium kasyno z bogatą ofertą gier na żywo, wysokimi limitami i profesjonalnymi krupierami.",
     "license": "MGA",
     "payoutSpeed": "0-24h",
+    "isFeatured": true
+  },
+  {
+    "id": "2",
+    "name": "Golden Spin",
+    "logoUrl": "https://via.placeholder.com/80/1e1e2e/f59e0b?text=GS",
+    "rating": 4.6,
+    "bonus": "200% Bonus Powitalny",
+    "affiliateLink": "https://example.com/golden",
+    "minDeposit": "20€",
+    "features": ["Krypto", "Wysokie RTP", "Program VIP", "Turnieje"],
+    "category": "slots",
+    "description": "Najlepsze automaty z progresywnymi jackpotami i cotygodniowymi turniejami.",
+    "license": "Curacao",
+    "payoutSpeed": "24-48h",
+    "isFeatured": false
+  },
+  {
+    "id": "3",
+    "name": "Neon Bet",
+    "logoUrl": "https://via.placeholder.com/80/1e1e2e/f59e0b?text=NB",
+    "rating": 4.9,
+    "bonus": "50 Darmowych Spinów bez depozytu",
+    "affiliateLink": "https://example.com/neon",
+    "minDeposit": "5€",
+    "features": ["Bez wageringu", "Natychmiastowe wypłaty", "Krypto", "Turnieje"],
+    "category": "crypto",
+    "description": "Nowoczesne kasyno krypto z natychmiastowymi transakcjami i zerowym wageringiem.",
+    "license": "Curaçao",
+    "payoutSpeed": "Natychmiast",
+    "isFeatured": true
+  },
+  {
+    "id": "4",
+    "name": "Lucky Spin",
+    "logoUrl": "https://via.placeholder.com/80/1e1e2e/f59e0b?text=LS",
+    "rating": 4.4,
+    "bonus": "150% do 300€",
+    "affiliateLink": "https://example.com/lucky",
+    "minDeposit": "15€",
+    "features": ["Live Casino", "Aplikacja mobilna", "Program VIP"],
+    "category": "live",
+    "description": "Klasyczne kasyno z szeroką ofertą gier stołowych i automatów.",
+    "license": "MGA",
+    "payoutSpeed": "24h",
+    "isFeatured": false
+  },
+  {
+    "id": "5",
+    "name": "Crypto King",
+    "logoUrl": "https://via.placeholder.com/80/1e1e2e/f59e0b?text=CK",
+    "rating": 4.7,
+    "bonus": "1 BTC Bonus + 100 FS",
+    "affiliateLink": "https://example.com/cryptoking",
+    "minDeposit": "0.001 BTC",
+    "features": ["Krypto", "Natychmiastowe wypłaty", "Wysokie RTP", "Bez KYC"],
+    "category": "crypto",
+    "description": "Największe bonusy w krypto i brak weryfikacji dla mniejszych wypłat.",
+    "license": "Anjouan",
+    "payoutSpeed": "Natychmiast",
     "isFeatured": true
   }
 ]
