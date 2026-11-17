@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "lastUpdated": "2026-11-17T23:11:06.926Z",
+  "lastUpdated": "2026-11-17T23:13:19.745Z",
   "casinos": [
     {
       "id": "spinbetter",
@@ -47,9 +47,53 @@
           "freeSpins": 25
         }
       ],
-      "active": false,
+      "active": true,
       "order": 1,
       "createdAt": "2026-11-17T00:00:00.000Z"
+    },
+    {
+      "id": "test",
+      "name": "test",
+      "logo": "",
+      "bonusText": "",
+      "bonusAmount": 0,
+      "currency": "PLN",
+      "freeSpins": 0,
+      "rating": 4.5,
+      "ratingCount": "",
+      "url": "",
+      "featured": false,
+      "badge": "",
+      "tags": [],
+      "depositBonuses": [
+        {
+          "deposit": 1,
+          "percent": 100,
+          "maxBonus": 0,
+          "freeSpins": 0
+        },
+        {
+          "deposit": 2,
+          "percent": 75,
+          "maxBonus": 0,
+          "freeSpins": 0
+        },
+        {
+          "deposit": 3,
+          "percent": 75,
+          "maxBonus": 0,
+          "freeSpins": 0
+        },
+        {
+          "deposit": 4,
+          "percent": 75,
+          "maxBonus": 0,
+          "freeSpins": 0
+        }
+      ],
+      "active": true,
+      "order": 99,
+      "createdAt": "2026-11-17T23:13:16.493Z"
     }
   ]
 }
