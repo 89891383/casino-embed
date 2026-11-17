@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "lastUpdated": "2026-11-17T00:00:00.000Z",
+  "lastUpdated": "2026-11-17T23:11:04.431Z",
   "casinos": [
     {
       "id": "spinbetter",
@@ -15,14 +15,39 @@
       "url": "https://spinbetter.com",
       "featured": true,
       "badge": "Polecane",
-      "tags": ["Szybkie wypłaty", "Licencja", "Live Casino", "Support 24/7"],
-      "depositBonuses": [
-        { "deposit": 1, "percent": 100, "maxBonus": 1500, "freeSpins": 50 },
-        { "deposit": 2, "percent": 75,  "maxBonus": 1600, "freeSpins": 50 },
-        { "deposit": 3, "percent": 75,  "maxBonus": 1850, "freeSpins": 25 },
-        { "deposit": 4, "percent": 75,  "maxBonus": 1400, "freeSpins": 25 }
+      "tags": [
+        "Szybkie wypłaty",
+        "Licencja",
+        "Live Casino",
+        "Support 24/7"
       ],
-      "active": true,
+      "depositBonuses": [
+        {
+          "deposit": 1,
+          "percent": 100,
+          "maxBonus": 1500,
+          "freeSpins": 50
+        },
+        {
+          "deposit": 2,
+          "percent": 75,
+          "maxBonus": 1600,
+          "freeSpins": 50
+        },
+        {
+          "deposit": 3,
+          "percent": 75,
+          "maxBonus": 1850,
+          "freeSpins": 25
+        },
+        {
+          "deposit": 4,
+          "percent": 75,
+          "maxBonus": 1400,
+          "freeSpins": 25
+        }
+      ],
+      "active": false,
       "order": 1,
       "createdAt": "2026-11-17T00:00:00.000Z"
     }
